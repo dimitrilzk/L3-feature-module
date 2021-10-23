@@ -1,14 +1,39 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Route, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar.component';
+import { HomePage } from './pages/home.page';
+import { ActivePostsPage } from './pages/active-posts.page';
+import { InactivePostsPage } from './pages/inactive-posts.page';
+
+const routes:Route[] = [
+  {
+    path:"",
+    component:HomePage
+  },
+  {
+    path:"active-posts",
+    component:ActivePostsPage
+  },
+  {
+    path:"inactive-posts",
+    component:InactivePostsPage
+  }
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    HomePage,
+    ActivePostsPage,
+    InactivePostsPage,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

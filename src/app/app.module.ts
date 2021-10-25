@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar.component';
 import { HomePage } from './pages/home.page';
 import { ActivePostsPage } from './pages/active-posts.page';
 import { InactivePostsPage } from './pages/inactive-posts.page';
+import { PostCardComponent } from './components/post-card.component';
 
 const routes:Route[] = [
   {
@@ -30,6 +31,7 @@ const routes:Route[] = [
     HomePage,
     ActivePostsPage,
     InactivePostsPage,
+    PostCardComponent,
   ],
   imports: [
     BrowserModule,

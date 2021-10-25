@@ -1,37 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/post';
-import { getPosts } from '../posts.service';
+import { getPosts, updatePost } from '../posts.service';
 
 @Component({
   template: `
-      <div class="container mt-5">
-      <div *ngFor="let post of posts">
-        <div *ngIf="!post.active" class="card mb-4">
-          <h5 class="card-header">Post</h5>
-          <div class="card-body">
-            <h5 class="card-title">{{ post.title }}</h5>
-            <p class="card-text">
-              {{ post.body }}
-            </p>
-          </div>
-        </div>
+    <div class="container mt-5">
+      <div *ngFor="let post of posts; let i = index">
+        <app-post-card [post]="post" *ngIf="!post.active">
+          <button (click)="onActivePost(post.id, i)" class="btn btn-primary">
+            Attiva
+          </button>
+        </app-post-card>
       </div>
     </div>
   `,
-  styles: [
-  ]
+  styles: [],
 })
 export class InactivePostsPage implements OnInit {
   posts!: Post[];
 
-  constructor() {
-    getPosts().then((posts) => {
-      this.posts = posts;
-      console.log(this.posts);
-    });
+  constructor() {}
+
+  async ngOnInit() {
+    const posts = await getPosts();
+    this.posts = posts;
+    // console.log(this.posts);
   }
 
-  ngOnInit(): void {
+  onActivePost(id: number, i: number) {
+    updatePost({ active: true }, id);
+    this.posts.splice(i, 1);
   }
-
 }

@@ -45,6 +45,14 @@ import { Component, OnInit } from '@angular/core';
                 >Posts non attivi</a
               >
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="['/users']"
+                routerLinkActive="active"
+                >Users</a
+              >
+            </li>
           </ul>
         </div>
       </div>

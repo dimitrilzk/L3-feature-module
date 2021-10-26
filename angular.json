@@ -14,6 +14,9 @@
           "skipTests": true,
           "flat": true
         },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
         "@schematics/angular:application": {
           "strict": true
         }

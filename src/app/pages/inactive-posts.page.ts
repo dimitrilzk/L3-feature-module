@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/post';
-import { getPosts, updatePost } from '../posts.service';
+import { PostsService } from '../posts.service';
 
 @Component({
   template: `
@@ -10,6 +10,8 @@ import { getPosts, updatePost } from '../posts.service';
           <button (click)="onActivePost(post.id, i)" class="btn btn-primary">
             Attiva
           </button>
+          <button [routerLink]="['/inactive-posts',post.id]" routerLinkActive="router-link-active"  class="btn btn-primary ms-3" >Dettagli </button>
+
         </app-post-card>
       </div>
     </div>
@@ -19,16 +21,16 @@ import { getPosts, updatePost } from '../posts.service';
 export class InactivePostsPage implements OnInit {
   posts!: Post[];
 
-  constructor() {}
+  constructor(private postsSrv:PostsService) {}
 
   async ngOnInit() {
-    const posts = await getPosts();
+    const posts = await this.postsSrv.getPosts();
     this.posts = posts;
     // console.log(this.posts);
   }
 
   onActivePost(id: number, i: number) {
-    updatePost({ active: true }, id);
+    this.postsSrv.updatePost({ active: true }, id);
     this.posts.splice(i, 1);
   }
 }

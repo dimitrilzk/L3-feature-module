@@ -3,5 +3,6 @@ export interface Post{
     title:string,
     body:string,
     active:boolean,
-    type: 'news' | 'politic' | 'education'
+    type: 'news' | 'politic' | 'education',
+    author:string
 }

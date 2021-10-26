@@ -13,9 +13,9 @@ import { Post } from '../models/post';
       }"
       class="card mb-4"
     >
-      <h5 class="card-header">Post</h5>
+      <h5 class="card-header"><span appHighlight >Post</span></h5>
       <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
+        <h5 class="card-title">{{ post.title | maiuscolo }}</h5>
         <p class="card-text">
           {{ post.body }}
         </p>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../models/post';
-import { PostsService } from '../posts.service';
+import { Post } from '../../models/post';
+import { PostsService } from '../../posts.service';
 
 @Component({
   template: `

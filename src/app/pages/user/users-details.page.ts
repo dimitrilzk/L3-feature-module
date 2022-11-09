@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from '../models/user';
-import { UsersService } from '../users.service';
+import { User } from '../../models/user';
+import { UsersService } from '../../users.service';
 
 @Component({
   template: `
@@ -13,7 +13,7 @@ import { UsersService } from '../users.service';
     <ng-template #elseTemplate>
       <p>utente non trovato</p>
     </ng-template>
-    
+
   `,
   styles: [
   ]

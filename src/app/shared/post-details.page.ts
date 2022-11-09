@@ -9,11 +9,11 @@ import { PostsService } from '../posts.service';
     <div class="container ">
       <ng-container *ngIf="post; else elseTemplate">
         <h1 class="text-center mt-4 mb-3">
-          {{ post.title }}
+          {{ post?.title }}
         </h1>
-        <p>{{post.body}}</p>
-        <p>Categoria: {{post.type}}</p>
-        <p>Autore: {{post.author}}</p>
+        <p>{{post?.body}}</p>
+        <p>Categoria: {{post?.type}}</p>
+        <p>Autore: {{post?.author}}</p>
       </ng-container>
     </div>
     <ng-template #elseTemplate>

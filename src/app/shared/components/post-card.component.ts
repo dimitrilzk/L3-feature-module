@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from '../models/post';
+import { Post } from '../../models/post';
 
 @Component({
   selector: 'app-post-card',
@@ -20,7 +20,7 @@ import { Post } from '../models/post';
           {{ post.body }}
         </p>
         <ng-content></ng-content>
-        
+
       </div>
     </div>
   `,
